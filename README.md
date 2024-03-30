@@ -25,7 +25,17 @@ Integrantes:
 |Bibliografía|\<tema>\_\<autor>.pdf|ISW-2024-G5/Materiales/Bibliografía|
 |Resumen|Parcial_\<nroP>\_\<nombreResumen>.pdf|ISW-2024-G5/Materiales/Resúmenes|
 
+## Criterio para la linea base
+Definiremos a cada línea base los días sábados posterior a rendir un parcial o recuperatorio.
+Dichas fechas de cada línea base serían:
+- 11/05/2024
+- 22/06/2024
+- 06/07/2024
+
 ## Glosario
+
+Se tuvo en cuenta que para distinguir las palabras en las carpetas utilizaremos “-” y para los archivos finales “_”. Lo que está contenido entre “<>” es la variable de la regla de nombramiento y significan lo siguiente:
+
 | Sigla                | Significado                                                                 |
 |----------------------|-----------------------------------------------------------------------------|
 | version              | Se refiere a la versión en la que se encuentra el IC para distinguir si ha sufrido algún cambio el archivo |
@@ -35,3 +45,14 @@ Integrantes:
 | nroU                 | Se refiere al número de la unidad la cual está afectado |
 | nroP                 | Se refiere al número de parcial |
 | nombre-miembro-grupo | Nombre de un integrante del grupo |
+
+Los estados que se tuvieron en cuenta son:
+
+| Estado          | Significado                                                   |
+|-----------------|---------------------------------------------------------------|
+| Creado (CR)     | Se creó el IC pero no tiene contenido dentro de él.           |
+| En Desarrollo (ED) | El IC sigue en desarrollo o falta para completarlo.          |
+| Terminado (TO) | El IC está listo y completo.                                  |
+
+
+
