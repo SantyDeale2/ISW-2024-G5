@@ -16,12 +16,14 @@ Integrantes:
 | Programa de la materia      | ISW_Programa.pdf                  | ISW-2024-G5/Materiales/Programa         |
 | Cronograma de la materia    | ISW_Cronograma.bat                | ISW-2024-G5/Materiales                  |
 | Clases Grabadas             | ISW_ClasesGrabadas.url            | ISW-2024-G5/Materiales                  |
-| Enunciado TP                | Enunciado_<version>.pdf           | ISW-2024-G5/Trabajos-Prácticos/TP_<noTP>|
-| Enunciado TC                | Enunciado_<version>.pdf           | ISW-2024-G5/Trabajos-Conceptuales/TC_<noTC>|
-| Trabajos Prácticos          | TP_<noTP>_<estado>.<ext>          | ISW-2024-G5/Trabajos-Prácticos/<noTP>   |
-| Trabajos Conceptuales       | <nombreTC>_<estado>.<ext>         | ISW-2024-G5/Trabajos-Conceptuales/<nombreTC>|
-| Presentaciones              | <nombreDelTema>_<version>.pdf     | ISW-2024-G5/Clases/Teóricas/<unidad>/<grupo>/Presentaciones|
-| Notas Teóricas              | <tema>-<fecha>-<nombre-miembro-grupo>.jpg | 	ISW-2024-G5/Clases/Teóricas/<unidad>/<grupo>/Notas-Teoricas|
+| Enunciado TP                | Enunciado_\<version>.pdf          | ISW-2024-G5/Trabajos-Prácticos/TP_\<noTP>|
+| Enunciado TC                | Enunciado_\<version>.pdf         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
+| Trabajos Prácticos          | TP_\<noTP>_\<estado>.<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<noTP>   |
+| Trabajos Conceptuales       | \<nombreTC>_\<estado>.<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
+| Presentaciones              | \<nombreDelTema>_\<version>.pdf     | ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Presentaciones|
+| Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Notas-Teoricas|
+|Bibliografía|\<tema>\_\<autor>.pdf|ISW-2024-G5/Materiales/Bibliografía|
+|Resumen|Parcial_\<nroP>\_\<nombreResumen>.pdf|ISW-2024-G5/Materiales/Resúmenes|
 
 ## Glosario
 | Sigla                | Significado                                                                 |
