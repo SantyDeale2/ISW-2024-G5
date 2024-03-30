@@ -21,4 +21,15 @@ Integrantes:
 | Trabajos Prácticos          | TP_<noTP>_<estado>.<ext>          | ISW-2024-G5/Trabajos-Prácticos/<noTP>   |
 | Trabajos Conceptuales       | <nombreTC>_<estado>.<ext>         | ISW-2024-G5/Trabajos-Conceptuales/<nombreTC>|
 | Presentaciones              | <nombreDelTema>_<version>.pdf     | ISW-2024-G5/Clases/Teóricas/<unidad>/<grupo>/Presentaciones|
-| Notas Teóricas              | <tema>-<fecha>-<nombre-miembro-grupo>.jpg 	ISW-2024-G5/Clases/Teóricas/<unidad>/<grupo>/Notas-T eoricas 	IS W -2 024 -G 5/C las es /P racti cas /U nidad -<nroU >/N otas-P racticas
+| Notas Teóricas              | <tema>-<fecha>-<nombre-miembro-grupo>.jpg | 	ISW-2024-G5/Clases/Teóricas/<unidad>/<grupo>/Notas-Teoricas|
+
+## Glosario
+| Sigla                | Significado                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| version              | Se refiere a la versión en la que se encuentra el IC para distinguir si ha sufrido algún cambio el archivo |
+| estado               | Se refiere el estado en el que se encuentra el IC en ese momento, a continuación se nombran los estados posibles |
+| nroTP                | Se refiere al número del trabajo práctico en el cual se ve afectado el IC |
+| nombreTC             | Se refiere al nombre del trabajo conceptual al cual se ve afectado el IC |
+| nroU                 | Se refiere al número de la unidad la cual está afectado |
+| nroP                 | Se refiere al número de parcial |
+| nombre-miembro-grupo | Nombre de un integrante del grupo |
