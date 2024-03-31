@@ -18,9 +18,9 @@ Integrantes:
 | Clases Grabadas             | ISW_ClasesGrabadas.url            | ISW-2024-G5/Materiales                  |
 | Enunciado TP                | Enunciado_\<version>.pdf          | ISW-2024-G5/Trabajos-Prácticos/TP_\<noTP>|
 | Enunciado TC                | Enunciado_\<version>.pdf         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
-| Trabajos Prácticos          | TP_\<noTP>_\<estado>.<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<noTP>   |
-| Trabajos Conceptuales       | \<nombreTC>_\<estado>.<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
-| Presentaciones              | \<nombreDelTema>_\<version>.pdf     | ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Presentaciones|
+| Trabajos Prácticos          | TP_\<noTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<noTP>   |
+| Trabajos Conceptuales       | \<nombreTC>_\<estado>.\<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
+| Presentaciones              | \<tema>_\<version>.pdf     | ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Presentaciones|
 | Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Notas-Teoricas|
 |Bibliografía|\<tema>\_\<autor>.pdf|ISW-2024-G5/Materiales/Bibliografía|
 |Resumen|Parcial_\<nroP>\_\<nombreResumen>.pdf|ISW-2024-G5/Materiales/Resúmenes|
@@ -36,23 +36,28 @@ Dichas fechas de cada línea base serían:
 
 Se tuvo en cuenta que para distinguir las palabras en las carpetas utilizaremos “-” y para los archivos finales “_”. Lo que está contenido entre “<>” es la variable de la regla de nombramiento y significan lo siguiente:
 
-| Sigla                | Significado                                                                 |
-|----------------------|-----------------------------------------------------------------------------|
-| version              | Se refiere a la versión en la que se encuentra el IC para distinguir si ha sufrido algún cambio el archivo |
-| estado               | Se refiere el estado en el que se encuentra el IC en ese momento, a continuación se nombran los estados posibles |
-| nroTP                | Se refiere al número del trabajo práctico en el cual se ve afectado el IC |
-| nombreTC             | Se refiere al nombre del trabajo conceptual al cual se ve afectado el IC |
-| nroU                 | Se refiere al número de la unidad la cual está afectado |
-| nroP                 | Se refiere al número de parcial |
-| nombre-miembro-grupo | Nombre de un integrante del grupo |
+| Término                | Definición                                                                                                    |
+|------------------------|---------------------------------------------------------------------------------------------------------------|
+| `<version>`            | Número de versión del ítem de configuración para distinguir cambios en el archivo.                            |
+| `<estado>`             | Estado actual del ítem de configuración.                                                                       |
+| `<nroTP>`              | Número del trabajo práctico del ítem de configuración.                                            |
+| `<nombreTC>`          | Nombre del trabajo conceptual del ítem de configuración.                                        |
+| `<nroU>`               | Número de la unidad del curso del ítem de configuración.                                           |
+| `<nroP>`               | Representa el número del parcial.                                                      |
+| `<nombre-miembro-grupo>` | Nombre de un integrante del grupo.                                    |
+| `<tema>`               | Tema abarcado por el ítem de configuración.                                                                   |
+| `<ext>`                | Indica que los ítems de configuración pueden tener diferentes extensiones y tipos de archivos.              |
+| `<fecha>`              | Representa el día y mes de la toma de nota de la clase                 |
+| `<autor>`              | Representa el nombre del autor del libro o documento.                              |
+
 
 Los estados que se tuvieron en cuenta son:
 
 | Estado          | Significado                                                   |
 |-----------------|---------------------------------------------------------------|
-| Creado (CR)     | Se creó el IC pero no tiene contenido dentro de él.           |
-| En Desarrollo (ED) | El IC sigue en desarrollo o falta para completarlo.          |
-| Terminado (TO) | El IC está listo y completo.                                  |
+| Creado (CR)     | Se creó el ítem de configuración pero no tiene contenido dentro de él.           |
+| En Desarrollo (ED) | El ítem de configuración sigue en desarrollo o falta para completarlo.          |
+| Terminado (TO) | El ítem de configuración está listo y completo.                                  |
 
 
 
