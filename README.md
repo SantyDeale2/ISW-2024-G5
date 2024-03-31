@@ -15,7 +15,6 @@ Integrantes:
 |-----------------------------|-----------------------------------|-----------------------------------------|
 | Programa de la materia      | ISW_Programa.pdf                  | ISW-2024-G5/Materiales/Programa         |
 | Cronograma de la materia    | ISW_Cronograma.bat                | ISW-2024-G5/Materiales                  |
-| Clases Grabadas             | ISW_ClasesGrabadas.url            | ISW-2024-G5/Materiales                  |
 | Enunciado TP                | Enunciado_\<version>.pdf          | ISW-2024-G5/Trabajos-Prácticos/TP_\<noTP>|
 | Enunciado TC                | Enunciado_\<version>.pdf         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
 | Trabajos Prácticos          | TP_\<noTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<noTP>   |
@@ -61,4 +60,5 @@ Los estados que se tuvieron en cuenta son:
 | Terminado (TO) | El ítem de configuración está listo y completo.                                  |
 
 
+[Archivo de Gestión de Configuración](Trabajos-Prácticos/TP-4/TP_4_TO.pdf)
 
