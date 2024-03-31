@@ -45,10 +45,11 @@ Se tuvo en cuenta que para distinguir las palabras en las carpetas utilizaremos 
 | `<nroU>`               | Número de la unidad del curso del ítem de configuración.                                           |
 | `<nroP>`               | Representa el número del parcial.                                                      |
 | `<nombre-miembro-grupo>` | Nombre de un integrante del grupo.                                    |
-| `<tema>`               | Tema abarcado por el ítem de configuración.                                                                   |
+| `<tema>`               | Nombre que indica el tema abarcado.                                                                 |
 | `<ext>`                | Indica que los ítems de configuración pueden tener diferentes extensiones y tipos de archivos.              |
 | `<fecha>`              | Representa el día y mes de la toma de nota de la clase                 |
 | `<autor>`              | Representa el nombre del autor del libro o documento.                              |
+| `<nombreResumen>`     | Nombre descriptivo del resumen.|
 
 
 Los estados que se tuvieron en cuenta son:
