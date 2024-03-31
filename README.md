@@ -14,14 +14,14 @@ Integrantes:
 | Ítem de configuración       | Regla de nombrado                  | Ubicación                                |
 |-----------------------------|-----------------------------------|-----------------------------------------|
 | Programa de la materia      | ISW_Programa.pdf                  | ISW-2024-G5/Materiales/Programa         |
-| Cronograma de la materia    | ISW_Cronograma.bat                | ISW-2024-G5/Materiales                  |
-| Clases Grabadas             | ISW_ClasesGrabadas.url            | ISW-2024-G5/Materiales                  |
+| Cronograma de la materia    | ISW_Cronograma.bat                | ISW-2024-G5/Materiales/Cronograma                  |
 | Enunciado TP                | Enunciado_\<version>.pdf          | ISW-2024-G5/Trabajos-Prácticos/TP_\<noTP>|
 | Enunciado TC                | Enunciado_\<version>.pdf         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
-| Trabajos Prácticos          | TP_\<noTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<noTP>   |
+| Trabajos Prácticos          | TP_\<noTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<nroTP>   |
 | Trabajos Conceptuales       | \<nombreTC>_\<estado>.\<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
-| Presentaciones              | \<tema>_\<version>.pdf     | ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Presentaciones|
-| Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/\<unidad>/\<grupo>/Notas-Teoricas|
+| Presentaciones              | \<tema>_\<version>.pdf     |ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Presentaciones|
+| Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Notas-Teoricas|
+|Notas Prácticas|\<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg|ISW-2024-G5/Clases/Practicas/Unidad-/<nroU>|
 |Bibliografía|\<tema>\_\<autor>.pdf|ISW-2024-G5/Materiales/Bibliografía|
 |Resumen|Parcial_\<nroP>\_\<nombreResumen>.pdf|ISW-2024-G5/Materiales/Resúmenes|
 
@@ -61,4 +61,5 @@ Los estados que se tuvieron en cuenta son:
 | Terminado (TO) | El ítem de configuración está listo y completo.                                  |
 
 
+[Archivo de Gestión de Configuración](Trabajos-Prácticos/TP-4/TP_4_TO.pdf)
 
