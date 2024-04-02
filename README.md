@@ -17,7 +17,7 @@ Integrantes:
 | Cronograma de la materia    | ISW_Cronograma.bat                | ISW-2024-G5/Materiales/Cronograma                  |
 | Enunciado TP                | Enunciado_\<version>.pdf          | ISW-2024-G5/Trabajos-Prácticos/TP_\<noTP>|
 | Enunciado TC                | Enunciado_\<version>.pdf         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
-| Trabajos Prácticos          | TP_\<noTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<nroTP>   |
+| Trabajos Prácticos          | TP_\<nroTP>_\<estado>.\<ext>          | ISW-2024-G5/Trabajos-Prácticos/\<nroTP>   |
 | Trabajos Conceptuales       | \<nombreTC>_\<estado>.\<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
 | Presentaciones              | \<tema>_\<version>.pdf     |ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Presentaciones|
 | Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Notas-Teoricas|
