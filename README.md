@@ -21,7 +21,7 @@ Integrantes:
 | Trabajos Conceptuales       | \<nombreTC>_\<estado>.\<ext>         | ISW-2024-G5/Trabajos-Conceptuales/\<nombreTC>|
 | Presentaciones              | \<tema>_\<version>.pdf     |ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Presentaciones|
 | Notas Teóricas              | \<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg| ISW-2024-G5/Clases/Teóricas/Unidad-\<nroU>/Notas-Teoricas|
-|Notas Prácticas|\<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg|ISW-2024-G5/Clases/Practicas/Unidad-/<nroU>|
+|Notas Prácticas|\<tema>\_\<fecha>\_\<nombre-miembro-grupo>.jpg|ISW-2024-G5/Clases/Practicas/Unidad-\<nroU>|
 |Bibliografía|\<tema>\_\<autor>.pdf|ISW-2024-G5/Materiales/Bibliografía|
 |Resumen|Parcial_\<nroP>\_\<nombreResumen>.pdf|ISW-2024-G5/Materiales/Resúmenes|
 
