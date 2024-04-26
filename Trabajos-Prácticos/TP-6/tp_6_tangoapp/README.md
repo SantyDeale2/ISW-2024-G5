@@ -2,7 +2,7 @@ Antes de comenzar instalense el formateador Prettier y guardenlo como formateado
 
 Luego ejecuten
 
-npm install ci -----------> con esto instalan todas las dependencias
+npm ci -----------> con esto instalan todas las dependencias
 
 _SI NO LES DEJA INSTALEN NODE (yo tengo la v20.11.1)_
 

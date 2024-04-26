@@ -18,60 +18,8 @@
   background-color: #13ec6a !important;
 }
 
-.secondary-button {
-  background-color: transparent !important;
-  border-radius: 8px;
-  width: fit-content;
-  height: fit-content;
-  padding: 10px 38px;
-  color: #00ce7c !important;
-  font-weight: 650;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  color: inherit;
-  border: 2px solid #00ce7c;
-
-  transition: all 300ms ease;
-}
-.secondary-button:hover {
-  background-color: #00ce7c1c !important;
-}
-
-.tertiary-button {
-  background-color: #576360 !important;
-  border-radius: 8px;
-  width: fit-content;
-  height: fit-content;
-  padding: 12px 40px;
-  color: #b4b0a6 !important;
-  font-weight: 650;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  color: inherit;
-
-  transition: all 300ms ease;
-}
-
-.tertiary-button:hover {
-  background-color: #444e4c !important;
-}
-
 @media screen and (max-width: 500px) {
   .primary-button {
-    padding: 8px 12px;
-    font-weight: 500;
-  }
-
-  .secondary-button {
-    padding: 6px 12px;
-    font-weight: 500;
-  }
-
-  .tertiary-button {
     padding: 8px 12px;
     font-weight: 500;
   }
