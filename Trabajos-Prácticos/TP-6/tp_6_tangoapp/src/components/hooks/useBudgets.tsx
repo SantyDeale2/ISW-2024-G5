@@ -8,12 +8,15 @@ const useBudgets = () => {
   const [modals, setModals] = useState({
     success: { show: false },
     loading: { show: true },
+    payment: { show: false },
   });
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
+
+  const [isDelaying, setIsDelaying] = useState(false);
   const [status, setStatus] = useState<IStatusData | null>(null);
   const [transporterId, setTransporterId] = useState("");
-
   const router = useRouter();
+
 
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -87,6 +90,14 @@ const useBudgets = () => {
       setPaymentOption(event.target.value);
     },
     handleConfirmPayment: () => {
+      
+      console.log("Confirmar pago");
+      if (system.paymentOption === "credit") {
+        setModals({
+          ...modals,
+          payment: { show: true },
+        });
+      } else {
       actions.enviarEmail();
       const statusData = { value: "Confirmado", id: transporterId };
       localStorage.setItem("status", JSON.stringify(statusData));
@@ -94,6 +105,7 @@ const useBudgets = () => {
         ...modals,
         success: { show: true },
       });
+      }
     },
     enviarEmail: async () => {
       const msg = {
@@ -119,9 +131,15 @@ const useBudgets = () => {
         console.error("Error al enviar el correo electrónico:", error);
       }
     },
+  }
+        
+  const system = {
+    budgetList,
+    actualBudget,
+    paymentOption,
+    modals,
+    isDelaying,
   };
-
-  const system = { budgetList, actualBudget, paymentOption, modals, status };
 
   return { actions, system };
 };
