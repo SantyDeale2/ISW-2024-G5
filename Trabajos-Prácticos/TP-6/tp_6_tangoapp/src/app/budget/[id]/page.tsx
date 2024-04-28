@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/Button";
+import RatingStars from "@/components/RatingStars";
 import useBudgets from "@/components/hooks/useBudgets";
 import PaymentModal from "@/components/modals/PaymentModal";
 import SuccessModal from "@/components/modals/SuccessModal";
@@ -29,7 +30,7 @@ const BudgetSelected = () => {
               {system.actualBudget.name}
             </span>
             <div className="flex gap-1 items-center">
-              {actions.renderStars(system.actualBudget.rating)}
+              <RatingStars rating={system.actualBudget.rating} />
               <span>{system.actualBudget.rating}</span>
             </div>
           </div>
