@@ -1,6 +1,8 @@
-import Image from "next/image";
+"use client";
+import useHome from "@/components/hooks/useHome";
 
 export default function Home() {
+  const { system } = useHome();
   return (
     <div className="flex px-[20px] md:px-[30px] xl:px-[50px] 2xl:px-[60px] items-center">
       <div className="flex justify-between gap-[10%]">
