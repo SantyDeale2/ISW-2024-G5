@@ -55,7 +55,7 @@ const BudgetList = () => {
                 </div>
               ) : (
                 system.status?.value === "Registrado" && (
-                  <>
+                  <div className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]">
                     <div className="flex flex-col gap-5">
                       <span className="font-semibold text-3xl">
                         {budget.name}
@@ -89,7 +89,7 @@ const BudgetList = () => {
                         )
                       )}
                     </div>
-                  </>
+                  </div>
                 )
               )}
             </div>
