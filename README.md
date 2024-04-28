@@ -6,6 +6,7 @@ Integrantes:
 - Dealessandris, Santiago 89159
 - Vargas, Florencia Sofia 86021
 - Hayden, Matias Javier 81795
+- Silberman, Matias Agustin 85403
 - Villanueva, Cristian 72481
 - Andermatten, Alexis 70287
 
