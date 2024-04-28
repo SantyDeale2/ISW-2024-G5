@@ -5,6 +5,7 @@ const useHome = () => {
 
   useEffect(() => {
     const storedData = localStorage.getItem("budgetList");
+    const status = localStorage.getItem("status");
 
     if (!storedData || storedData.length === 0) {
       const budgetlist = [
@@ -31,8 +32,13 @@ const useHome = () => {
         },
       ];
 
+      if (!status) {
+        const statusData = { value: "Registrado", id: "" };
+        localStorage.setItem("status", JSON.stringify(statusData));
+      }
+
       setBudgetList(budgetlist);
-      localStorage.setItem("budgetlist", JSON.stringify(budgetlist));
+      localStorage.setItem("budgetList", JSON.stringify(budgetlist));
     }
   }, []);
 

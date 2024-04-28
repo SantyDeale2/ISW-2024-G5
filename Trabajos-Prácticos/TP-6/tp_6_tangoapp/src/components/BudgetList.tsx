@@ -28,13 +28,27 @@ const BudgetList = () => {
                   <RatingStars rating={budget.rating} />
                   <span>{budget.rating}</span>
                 </div>
-                <Button
-                  className="primary-button w-fit"
-                  type="button"
-                  onClick={() => router.push(`budget/${budget.id}`)}
-                >
-                  Seleccionar
-                </Button>
+                {system.status === null || system.status.id === "" ? (
+                  <Button
+                    className="primary-button w-fit"
+                    type="button"
+                    onClick={() => router.push(`budget/${budget.id}`)}
+                  >
+                    Seleccionar
+                  </Button>
+                ) : (
+                  system.status.id === budget.id && (
+                    <>
+                      <Button
+                        className="primary-button w-fit"
+                        type="button"
+                        onClick={() => router.push(`budget/${budget.id}`)}
+                      >
+                        Ver Detalle
+                      </Button>
+                    </>
+                  )
+                )}
               </div>
             </div>
           ))}

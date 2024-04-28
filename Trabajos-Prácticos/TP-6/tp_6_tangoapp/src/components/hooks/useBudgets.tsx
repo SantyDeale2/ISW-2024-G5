@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RatingStars from "../RatingStars";
+import { useRouter } from "next/navigation";
 
 const useBudgets = () => {
   const [actualBudget, setActualBudget] = useState<IBudgetData | null>(null);
@@ -9,14 +10,34 @@ const useBudgets = () => {
     loading: { show: true },
   });
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
+  const [status, setStatus] = useState<IStatusData | null>(null);
+  const [transporterId, setTransporterId] = useState("");
+
+  const router = useRouter();
 
   useEffect(() => {
     const currentUrl = window.location.href;
     const budgetId = currentUrl.substring(currentUrl.lastIndexOf("/") + 1);
+    setTransporterId(budgetId);
+
+    const statusLocalStorage = localStorage.getItem("status");
+
+    if (!statusLocalStorage) {
+      const statusData = { value: "Registrado", id: "" };
+      localStorage.setItem("status", JSON.stringify(statusData));
+    } else {
+      const parsedStatus = JSON.parse(statusLocalStorage);
+
+      if (parsedStatus.id !== "" && parsedStatus.id !== budgetId) {
+        router.push("/budget");
+      }
+
+      setStatus(parsedStatus);
+    }
 
     setTimeout(() => {
       let parsedData;
-      const status = localStorage.getItem("status");
+
       const storedData = localStorage.getItem("budgetList");
 
       if (!storedData || storedData.length === 0) {
@@ -67,6 +88,8 @@ const useBudgets = () => {
     },
     handleConfirmPayment: () => {
       actions.enviarEmail();
+      const statusData = { value: "Confirmado", id: transporterId };
+      localStorage.setItem("status", JSON.stringify(statusData));
       setModals({
         ...modals,
         success: { show: true },
@@ -98,7 +121,7 @@ const useBudgets = () => {
     },
   };
 
-  const system = { budgetList, actualBudget, paymentOption, modals };
+  const system = { budgetList, actualBudget, paymentOption, modals, status };
 
   return { actions, system };
 };
@@ -111,4 +134,9 @@ interface IBudgetData {
   rating: number;
   budget: number;
   pickUpDate: Date;
+}
+
+interface IStatusData {
+  id: string;
+  value: string;
 }

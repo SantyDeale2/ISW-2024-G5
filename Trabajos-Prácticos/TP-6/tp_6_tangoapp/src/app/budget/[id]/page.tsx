@@ -46,65 +46,80 @@ const BudgetSelected = () => {
             <span>???????????????????????</span>
           </div>
 
-          <div className="flex flex-col mt-10 gap-4">
-            <span className="text-2xl font-semibold">Importe</span>
-            <div className="flex gap-20">
-              <span className="text-lg font-semibold">
-                $ {system.actualBudget.budget}
-              </span>
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-col">
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="credit"
-                      checked={system.paymentOption === "credit"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Tarjeta Crédito/Débito
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="cash_pickup"
-                      checked={system.paymentOption === "cash_pickup"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Efectivo al Retirar
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="cash_delivery"
-                      checked={system.paymentOption === "cash_delivery"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Efectivo contra Entrega
-                  </label>
+          {system.status?.value !== "Confirmado" ? (
+            <>
+              <div className="flex flex-col mt-10 gap-4">
+                <span className="text-2xl font-semibold">Importe</span>
+                <div className="flex gap-20">
+                  <span className="text-lg font-semibold">
+                    $ {system.actualBudget.budget}
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="credit"
+                          checked={system.paymentOption === "credit"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Tarjeta Crédito/Débito
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="cash_pickup"
+                          checked={system.paymentOption === "cash_pickup"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Efectivo al Retirar
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="cash_delivery"
+                          checked={system.paymentOption === "cash_delivery"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Efectivo contra Entrega
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="flex justify-end">
-            <Button
-              className="primary-button w-fit"
-              type="button"
-              onClick={
-                system.paymentOption === "credit"
-                  ? () => console.log("Implementar Pago")
-                  : () => actions.handleConfirmPayment()
-              }
-            >
-              {system.paymentOption === "credit" ? "Pagar" : "Confirmar"}
-            </Button>
-          </div>
+              <div className="flex justify-end">
+                <Button
+                  className="primary-button w-fit"
+                  type="button"
+                  onClick={
+                    system.paymentOption === "credit"
+                      ? () => console.log("Implementar Pago")
+                      : () => actions.handleConfirmPayment()
+                  }
+                >
+                  {system.paymentOption === "credit" ? "Pagar" : "Confirmar"}
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex flex-col mt-10 gap-4">
+                <span className="text-2xl font-semibold">Importe</span>
+                <div className="flex gap-20">
+                  <span className="text-lg font-semibold">
+                    $ {system.actualBudget.budget}
+                  </span>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       ) : (
         <div>NO SE HA ENCONTRADO NINGUN PEDIDO CON ESE ID</div>
