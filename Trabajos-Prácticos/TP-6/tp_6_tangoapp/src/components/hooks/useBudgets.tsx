@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const useBudgets = () => {
   const [actualBudget, setActualBudget] = useState<IBudgetData | null>(null);
-  const [paymentOption, setPaymentOption] = useState("credit");
+  const [paymentOption, setPaymentOption] = useState("cash_pickup");
   const [modals, setModals] = useState({
     success: { show: false },
   });
@@ -85,10 +85,35 @@ const useBudgets = () => {
       setPaymentOption(event.target.value);
     },
     handleConfirmPayment: () => {
+      actions.enviarEmail();
       setModals({
         ...modals,
         success: { show: true },
       });
+    },
+    enviarEmail: async () => {
+      const msg = {
+        to: "test@example.com", // Change to your recipient
+        from: "test@example.com", // Change to your verified sender
+        subject: "Sending with SendGrid is Fun",
+        text: "and easy to do anywhere, even with Node.js",
+        html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+      };
+      try {
+        const response = await fetch("send-messages", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            msg,
+          }),
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error("Error al enviar el correo electrónico:", error);
+      }
     },
   };
 
