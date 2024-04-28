@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import RatingStars from "../RatingStars";
 
 const useBudgets = () => {
   const [actualBudget, setActualBudget] = useState<IBudgetData | null>(null);
@@ -43,44 +44,6 @@ const useBudgets = () => {
   }, []);
 
   const actions = {
-    renderStars: (rating: number) => {
-      const stars = [];
-      const filled = Math.floor(rating);
-      const fraction = rating - filled;
-      const fullStarWidth = 100 / 5;
-
-      for (let i = 0; i < filled; i++) {
-        stars.push(
-          <span key={i} className="text-yellow-400 text-4xl">
-            &#9733;
-          </span>
-        );
-      }
-
-      let lastStarFraction = 0;
-      if (fraction > 0 && fraction < 1) {
-        lastStarFraction = fraction * fullStarWidth;
-      } else if (fraction >= 1) {
-        lastStarFraction = fullStarWidth;
-      }
-
-      if (lastStarFraction > 0) {
-        const style = {
-          width: `${lastStarFraction}%`,
-          overflow: "hidden",
-        };
-        stars.push(
-          <span
-            key="fraction"
-            className="text-yellow-400 text-4xl"
-            style={style}
-          >
-            &#9733;
-          </span>
-        );
-      }
-      return stars;
-    },
     handlePaymentOptionChange: (event: React.ChangeEvent<HTMLInputElement>) => {
       setPaymentOption(event.target.value);
     },

@@ -3,6 +3,7 @@ import React from "react";
 import useBudgets from "./hooks/useBudgets";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
+import RatingStars from "./RatingStars";
 
 const BudgetList = () => {
   const { actions, system } = useBudgets();
@@ -21,7 +22,7 @@ const BudgetList = () => {
           </div>
           <div className="flex flex-col items-center">
             <div className="flex gap-1 items-center">
-              {actions.renderStars(budget.rating)}
+              <RatingStars rating={budget.rating} />
               <span>{budget.rating}</span>
             </div>
             <Button
