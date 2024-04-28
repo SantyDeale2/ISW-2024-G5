@@ -15,41 +15,83 @@ const BudgetList = () => {
       {system.budgetList ? (
         <>
           {system.budgetList.map((budget: IBudgetData, index: number) => (
-            <div
-              key={index}
-              className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]"
-            >
-              <div className="flex flex-col gap-5">
-                <span className="font-semibold text-3xl">{budget.name}</span>
-                <span className="text-2xl">$ {budget.budget}</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="flex gap-1 items-center">
-                  <RatingStars rating={budget.rating} />
-                  <span>{budget.rating}</span>
-                </div>
-                {system.status === null || system.status.id === "" ? (
-                  <Button
-                    className="primary-button w-fit"
-                    type="button"
-                    onClick={() => router.push(`budget/${budget.id}`)}
-                  >
-                    Seleccionar
-                  </Button>
-                ) : (
-                  system.status.id === budget.id && (
-                    <>
+            <div key={index}>
+              {system.status?.value === "Confirmado" &&
+              system.status.id === budget.id ? (
+                <div className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]">
+                  <div className="flex flex-col gap-5">
+                    <span className="font-semibold text-3xl">
+                      {budget.name}
+                    </span>
+                    <span className="text-2xl">$ {budget.budget}</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <div className="flex gap-1 items-center">
+                      <RatingStars rating={budget.rating} />
+                      <span>{budget.rating}</span>
+                    </div>
+                    {system.status === null || system.status.id === "" ? (
                       <Button
                         className="primary-button w-fit"
                         type="button"
                         onClick={() => router.push(`budget/${budget.id}`)}
                       >
-                        Ver Detalle
+                        Seleccionar
                       </Button>
-                    </>
-                  )
-                )}
-              </div>
+                    ) : (
+                      system.status.id === budget.id && (
+                        <>
+                          <Button
+                            className="primary-button w-fit"
+                            type="button"
+                            onClick={() => router.push(`budget/${budget.id}`)}
+                          >
+                            Ver Detalle
+                          </Button>
+                        </>
+                      )
+                    )}
+                  </div>
+                </div>
+              ) : (
+                system.status?.value === "Registrado" && (
+                  <>
+                    <div className="flex flex-col gap-5">
+                      <span className="font-semibold text-3xl">
+                        {budget.name}
+                      </span>
+                      <span className="text-2xl">$ {budget.budget}</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="flex gap-1 items-center">
+                        <RatingStars rating={budget.rating} />
+                        <span>{budget.rating}</span>
+                      </div>
+                      {system.status === null || system.status.id === "" ? (
+                        <Button
+                          className="primary-button w-fit"
+                          type="button"
+                          onClick={() => router.push(`budget/${budget.id}`)}
+                        >
+                          Seleccionar
+                        </Button>
+                      ) : (
+                        system.status.id === budget.id && (
+                          <>
+                            <Button
+                              className="primary-button w-fit"
+                              type="button"
+                              onClick={() => router.push(`budget/${budget.id}`)}
+                            >
+                              Ver Detalle
+                            </Button>
+                          </>
+                        )
+                      )}
+                    </div>
+                  </>
+                )
+              )}
             </div>
           ))}
         </>
