@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import RatingStars from "../RatingStars";
 
 const useBudgets = () => {
   const [actualBudget, setActualBudget] = useState<IBudgetData | null>(null);
@@ -7,8 +6,10 @@ const useBudgets = () => {
   const [modals, setModals] = useState({
     success: { show: false },
     loading: { show: true },
+    payment: { show: false },
   });
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
+  const [isDelaying, setIsDelaying] = useState(false);
 
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -66,11 +67,19 @@ const useBudgets = () => {
       setPaymentOption(event.target.value);
     },
     handleConfirmPayment: () => {
-      actions.enviarEmail();
-      setModals({
-        ...modals,
-        success: { show: true },
-      });
+      console.log("Confirmar pago");
+      if (system.paymentOption === "credit") {
+        setModals({
+          ...modals,
+          payment: { show: true },
+        });
+      } else {
+        actions.enviarEmail();
+        setModals({
+          ...modals,
+          success: { show: true },
+        });
+      }
     },
     enviarEmail: async () => {
       const msg = {
@@ -98,7 +107,13 @@ const useBudgets = () => {
     },
   };
 
-  const system = { budgetList, actualBudget, paymentOption, modals };
+  const system = {
+    budgetList,
+    actualBudget,
+    paymentOption,
+    modals,
+    isDelaying,
+  };
 
   return { actions, system };
 };
