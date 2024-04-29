@@ -108,3 +108,8 @@
   flex: 1;
   margin: 5px;
 }
+
+.row-Fecha {
+  display: flex;
+  justify-content: space-between;
+}

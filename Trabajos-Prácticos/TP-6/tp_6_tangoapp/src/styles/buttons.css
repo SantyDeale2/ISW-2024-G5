@@ -1,5 +1,5 @@
 .primary-button {
-  background-color: #00ce7c !important;
+  background-color: #214e34 !important;
   border-radius: 8px;
   width: 100%;
   height: fit-content;
@@ -15,7 +15,7 @@
 }
 
 .primary-button:hover {
-  background-color: #13ec6a !important;
+  background-color: #214e34 !important;
 }
 
 @media screen and (max-width: 500px) {

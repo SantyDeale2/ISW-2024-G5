@@ -17,7 +17,6 @@ const useBudgets = () => {
   const [transporterId, setTransporterId] = useState("");
   const router = useRouter();
 
-
   useEffect(() => {
     const currentUrl = window.location.href;
     const budgetId = currentUrl.substring(currentUrl.lastIndexOf("/") + 1);
@@ -90,7 +89,6 @@ const useBudgets = () => {
       setPaymentOption(event.target.value);
     },
     handleConfirmPayment: () => {
-      
       console.log("Confirmar pago");
       if (system.paymentOption === "credit") {
         setModals({
@@ -98,13 +96,13 @@ const useBudgets = () => {
           payment: { show: true },
         });
       } else {
-      actions.enviarEmail();
-      const statusData = { value: "Confirmado", id: transporterId };
-      localStorage.setItem("status", JSON.stringify(statusData));
-      setModals({
-        ...modals,
-        success: { show: true },
-      });
+        actions.enviarEmail();
+        const statusData = { value: "Confirmado", id: transporterId };
+        localStorage.setItem("status", JSON.stringify(statusData));
+        setModals({
+          ...modals,
+          success: { show: true },
+        });
       }
     },
     enviarEmail: async () => {
@@ -131,14 +129,15 @@ const useBudgets = () => {
         console.error("Error al enviar el correo electrónico:", error);
       }
     },
-  }
-        
+  };
+
   const system = {
     budgetList,
     actualBudget,
     paymentOption,
     modals,
     isDelaying,
+    status,
   };
 
   return { actions, system };

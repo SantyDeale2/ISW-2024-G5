@@ -23,31 +23,33 @@ const PaymentModal = ({ open, onClose, onClickButton }: IPaymentModal) => {
       <div className="container">
         <span className="font-bold text-3xl">Detalle de Pago con Tarjeta</span>
         <div className="input-group-full">
-          <label className="label">
-            Número de Tarjeta:
-            <input
-              className="input-line input-full"
-              type="text"
-              value={cardNumber}
-              onChange={(e) => {
-                setCardNumber(e.target.value);
-                if (
-                  e.target.value.length === 12 &&
-                  e.target.value !== "123456789123"
-                ) {
-                  setCardNumberError("Número de tarjeta incorrecto");
-                } else {
-                  setCardNumberError("");
-                }
-              }}
-              placeholder="Número de Tarjeta"
-              required
-              maxLength={12}
-            />
-            {cardNumberError && (
-              <span className="error">{cardNumberError}</span>
-            )}
-          </label>
+          <div className="input-field">
+            <label className="label">
+              Número de Tarjeta:
+              <input
+                className="input-line"
+                type="text"
+                value={cardNumber}
+                onChange={(e) => {
+                  setCardNumber(e.target.value);
+                  if (
+                    e.target.value.length === 12 &&
+                    e.target.value !== "123456789123"
+                  ) {
+                    setCardNumberError("Número de tarjeta incorrecto");
+                  } else {
+                    setCardNumberError("");
+                  }
+                }}
+                placeholder="Número de Tarjeta"
+                required
+                maxLength={12}
+              />
+              {cardNumberError && (
+                <span className="error">{cardNumberError}</span>
+              )}
+            </label>
+          </div>
         </div>
 
         <div className="row">
@@ -107,52 +109,65 @@ const PaymentModal = ({ open, onClose, onClickButton }: IPaymentModal) => {
           </label>
         </div>
         <div className="input-group">
-          <div className="input-field">
-            <label className="label">Fecha de Vencimiento:</label>
-            <input
-              className="input-line"
-              type="date"
-              onChange={(e) => {
-                const fechaFormateada = moment(e.target.value).format(
-                  "DD/MM/YYYY"
-                );
-                setExpiryDate(fechaFormateada);
-                if (e.target.value) {
-                  if (fechaFormateada !== "05/05/2024") {
-                    setExpiryDateError("Fecha de vencimiento incorrecta");
-                  } else {
-                    setExpiryDateError("");
+          <div className="row-Fecha">
+            <div className="input-field">
+              <label className="label">Fecha de Vencimiento:</label>
+              <input
+                className="input-line"
+                type="text"
+                maxLength={5}
+                onChange={(e) => {
+                  let input = e.target.value;
+                  // Solo permite números y la barra (/)
+                  const regex = /^[0-9/]*$/;
+                  if (!regex.test(input)) {
+                    return;
                   }
-                }
-              }}
-              placeholder="DD/MM/AAAA"
-              required
-            />
-            {expiryDateError && (
-              <span className="error">{expiryDateError}</span>
-            )}
-          </div>
-          <div className="input-field">
-            <label className="label">Código de Seguridad:</label>
-            <input
-              className="input-line"
-              type="text"
-              value={securityCode}
-              onChange={(e) => {
-                setSecurityCode(e.target.value);
-                if (e.target.value.length === 3 && e.target.value !== "123") {
-                  setSecurityCodeError("Código de seguridad incorrecto");
-                } else {
-                  setSecurityCodeError("");
-                }
-              }}
-              placeholder="Código de Seguridad"
-              required
-              maxLength={3} //
-            />
-            {securityCodeError && (
-              <span className="error">{securityCodeError}</span>
-            )}
+                  if (input.length === 2 && !input.includes("/")) {
+                    input = input + "/";
+                  }
+                  setExpiryDate(input);
+                  if (input.length === 5) {
+                    const [month, year] = input.split("/");
+                    const numMonth = Number(month);
+                    const numYear = Number(year);
+                    if (numMonth > 12 || numMonth < 1 || year.length !== 2) {
+                      setExpiryDateError("Fecha de vencimiento incorrecta");
+                    } else {
+                      setExpiryDateError("");
+                    }
+                  }
+                }}
+                placeholder="MM/AA"
+                required
+                value={expiryDate}
+              />
+              {expiryDateError && (
+                <span className="error">{expiryDateError}</span>
+              )}
+            </div>
+            <div className="input-field">
+              <label className="label">Código de Seguridad:</label>
+              <input
+                className="input-line"
+                type="text"
+                value={securityCode}
+                onChange={(e) => {
+                  setSecurityCode(e.target.value);
+                  if (e.target.value.length === 3 && e.target.value !== "123") {
+                    setSecurityCodeError("Código de seguridad incorrecto");
+                  } else {
+                    setSecurityCodeError("");
+                  }
+                }}
+                placeholder="Código de Seguridad"
+                required
+                maxLength={3} //
+              />
+              {securityCodeError && (
+                <span className="error">{securityCodeError}</span>
+              )}
+            </div>
           </div>
         </div>
 
