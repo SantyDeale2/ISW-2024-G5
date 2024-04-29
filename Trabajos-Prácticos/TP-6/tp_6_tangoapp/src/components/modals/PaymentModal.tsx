@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BasicModal from "../BasicModal";
 import Button from "../Button";
 import "../../styles/PaymentModal.css";
-import moment from "moment";
+
 
 const PaymentModal = ({ open, onClose, onClickButton }: IPaymentModal) => {
   const [name, setName] = useState("");
