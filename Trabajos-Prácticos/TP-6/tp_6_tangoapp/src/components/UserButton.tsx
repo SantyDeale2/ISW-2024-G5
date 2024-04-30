@@ -68,11 +68,11 @@ const UserButton = () => {
           >
             <div className="flex flex-col rounded-b-[8px] rounded-tl-[8px] border border-[#011638] bg-[#DFF8EB] font-semibold text-[#011638]">
               <Link
-                href="/budget"
+                href="/order"
                 className="cursor-pointer whitespace-nowrap  px-[10px] py-[7px] transition duration-300 hover:bg-[#bfd4c9]"
                 onClick={handleCloseMenu}
               >
-                <span>Cotizaciones</span>
+                <span>Pedidos</span>
               </Link>
             </div>
           </div>

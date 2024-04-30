@@ -1,6 +1,7 @@
 @import "./dropdown.css";
 @import "./buttons.css";
 @import "./spinner.css";
+@import "./inputs.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

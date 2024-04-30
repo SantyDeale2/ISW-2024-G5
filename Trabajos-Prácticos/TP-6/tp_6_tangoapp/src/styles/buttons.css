@@ -4,7 +4,7 @@
   width: 100%;
   height: fit-content;
   padding: 12px 40px;
-  color: #060e0e !important;
+  color: #ffffff !important;
   font-weight: 650;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 .primary-button:hover {
-  background-color: #214e34 !important;
+  background-color: #2b6443 !important;
 }
 
 @media screen and (max-width: 500px) {

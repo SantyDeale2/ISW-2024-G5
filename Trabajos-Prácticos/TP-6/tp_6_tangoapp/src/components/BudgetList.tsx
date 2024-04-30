@@ -6,92 +6,38 @@ import { useRouter } from "next/navigation";
 import RatingStars from "./RatingStars";
 import Spinner from "./Spinner";
 
-const BudgetList = () => {
-  const { actions, system } = useBudgets();
+const BudgetList = ({ list }: IBudgetList) => {
+  const { system } = useBudgets();
   const router = useRouter();
 
   return (
     <div className="flex flex-col gap-5 h-full">
-      {system.budgetList ? (
+      {list ? (
         <>
-          {system.budgetList.map((budget: IBudgetData, index: number) => (
+          {list.map((budget: IBudgetData, index: number) => (
             <div key={index}>
-              {system.status?.value === "Confirmado" &&
-              system.status.id === budget.id ? (
-                <div className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]">
-                  <div className="flex flex-col gap-5">
-                    <span className="font-semibold text-3xl">
-                      {budget.name}
-                    </span>
-                    <span className="text-2xl">$ {budget.budget}</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="flex gap-1 items-center">
-                      <RatingStars rating={budget.rating} />
-                      <span>{budget.rating}</span>
-                    </div>
-                    {system.status === null || system.status.id === "" ? (
-                      <Button
-                        className="primary-button w-fit"
-                        type="button"
-                        onClick={() => router.push(`budget/${budget.id}`)}
-                      >
-                        Seleccionar
-                      </Button>
-                    ) : (
-                      system.status.id === budget.id && (
-                        <>
-                          <Button
-                            className="primary-button w-fit"
-                            type="button"
-                            onClick={() => router.push(`budget/${budget.id}`)}
-                          >
-                            Ver Detalle
-                          </Button>
-                        </>
-                      )
-                    )}
-                  </div>
+              <div className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]">
+                <div className="flex flex-col gap-5">
+                  <span className="font-semibold text-3xl">{budget.name}</span>
+                  <span className="text-2xl">$ {budget.budget}</span>
                 </div>
-              ) : (
-                system.status?.value === "Registrado" && (
-                  <div className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638]">
-                    <div className="flex flex-col gap-5">
-                      <span className="font-semibold text-3xl">
-                        {budget.name}
-                      </span>
-                      <span className="text-2xl">$ {budget.budget}</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="flex gap-1 items-center">
-                        <RatingStars rating={budget.rating} />
-                        <span>{budget.rating}</span>
-                      </div>
-                      {system.status === null || system.status.id === "" ? (
-                        <Button
-                          className="primary-button w-fit"
-                          type="button"
-                          onClick={() => router.push(`budget/${budget.id}`)}
-                        >
-                          Seleccionar
-                        </Button>
-                      ) : (
-                        system.status.id === budget.id && (
-                          <>
-                            <Button
-                              className="primary-button w-fit"
-                              type="button"
-                              onClick={() => router.push(`budget/${budget.id}`)}
-                            >
-                              Ver Detalle
-                            </Button>
-                          </>
-                        )
-                      )}
-                    </div>
+                <div className="flex flex-col items-center">
+                  <div className="flex gap-1 items-center">
+                    <RatingStars rating={budget.rating} />
+                    <span>{budget.rating}</span>
                   </div>
-                )
-              )}
+
+                  <Button
+                    className="primary-button w-fit"
+                    type="button"
+                    onClick={() =>
+                      router.push(`/budget/${budget.id}/${budget.idOrder}`)
+                    }
+                  >
+                    Seleccionar
+                  </Button>
+                </div>
+              </div>
             </div>
           ))}
         </>
@@ -112,4 +58,10 @@ interface IBudgetData {
   name: string;
   rating: number;
   budget: number;
+  pickUpDate: Date;
+  idOrder: string;
+}
+
+interface IBudgetList {
+  list: IBudgetData[];
 }

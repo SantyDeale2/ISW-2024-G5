@@ -3,16 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev && node src/app/api/mysendmail.js",
+    "build": "next build && node src/app/api/mysendmail.js",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.3",
+    "@trpc/client": "^11.0.0-rc.359",
+    "@trpc/server": "^11.0.0-rc.359",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "next": "14.2.3",
+    "nodemailer": "^6.9.13",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.3",
     "react-icons": "^5.1.0"
   },
   "devDependencies": {
