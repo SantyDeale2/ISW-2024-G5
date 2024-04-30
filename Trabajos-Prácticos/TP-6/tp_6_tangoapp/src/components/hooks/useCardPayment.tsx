@@ -172,7 +172,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
             ...modals,
             error: {
               show: true,
-              message: "Debe completar todos los campos",
+              message: "Debe completar todos los campos (Nombre Completo)",
             },
           });
           return;
@@ -182,7 +182,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
           ...modals,
           error: {
             show: true,
-            message: "Debe completar todos los campos",
+            message: "Debe completar todos los campos (Nombre Completo)",
           },
         });
         return;
@@ -195,7 +195,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
             ...modals,
             error: {
               show: true,
-              message: "Debe completar todos los campos",
+              message: "Debe completar todos los campos (Numero de Tarjeta)",
             },
           });
           return;
@@ -205,7 +205,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
           ...modals,
           error: {
             show: true,
-            message: "Debe completar todos los campos",
+            message: "Debe completar todos los campos (Numero de Tarjeta)",
           },
         });
         return;
@@ -218,7 +218,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
             ...modals,
             error: {
               show: true,
-              message: "Debe completar todos los campos",
+              message: "Debe completar todos los campos (Pin)",
             },
           });
           return;
@@ -228,19 +228,19 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
           ...modals,
           error: {
             show: true,
-            message: "Debe completar todos los campos",
+            message: "Debe completar todos los campos (Pin)",
           },
         });
         return;
       }
 
-      const date = form.get("date")?.toString();
+      const date = form.get("expirationDate")?.toString();
       if (!date) {
         setModals({
           ...modals,
           error: {
             show: true,
-            message: "Debe completar todos los campos",
+            message: "Debe completar todos los campos (Fecha de Expiración)",
           },
         });
         return;
@@ -253,30 +253,21 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
             ...modals,
             error: {
               show: true,
-              message: "Debe completar todos los campos",
+              message: "Debe completar todos los campos (Tipo de Documento)",
             },
           });
           return;
         }
-      } else {
-        setModals({
-          ...modals,
-          error: {
-            show: true,
-            message: "Debe completar todos los campos",
-          },
-        });
-        return;
       }
 
       const documentNumber = form.get("document-number")?.toString();
       if (documentNumber) {
-        if (documentNumber.length < 3) {
+        if (documentNumber.length < 6) {
           setModals({
             ...modals,
             error: {
               show: true,
-              message: "Debe completar todos los campos",
+              message: "Debe completar todos los campos (Número de Documento)",
             },
           });
           return;
@@ -286,7 +277,7 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
           ...modals,
           error: {
             show: true,
-            message: "Debe completar todos los campos",
+            message: "Debe completar todos los campos (Número de Documento)",
           },
         });
         return;
