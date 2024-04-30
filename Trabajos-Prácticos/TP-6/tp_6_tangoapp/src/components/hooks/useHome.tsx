@@ -6,7 +6,6 @@ const useHome = () => {
   const router = useRouter();
 
   useEffect(() => {
-   
     router.push("/order");
     const storedData = localStorage.getItem("budgetList");
     const status = localStorage.getItem("status");
