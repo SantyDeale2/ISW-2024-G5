@@ -255,6 +255,7 @@ interface IBudgetData {
   rating: number;
   budget: number;
   pickUpDate: Date;
+  deliveryDate: Date;
   idOrder: string;
   email: string;
 }

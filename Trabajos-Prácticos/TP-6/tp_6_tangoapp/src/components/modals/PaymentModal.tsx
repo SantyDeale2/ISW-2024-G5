@@ -45,8 +45,10 @@ const PaymentModal = ({
       </SuccessModal>
 
       <form className="px-[40px] mb-[5%]" onSubmit={actions.onSubmit}>
-        <span className="font-bold text-2xl">Detalle de Pago con Tarjeta</span>
-        <div className="flex flex-col mt-10 gap-4">
+        <span className="font-bold text-xl md:text-2xl">
+          Detalle de Pago con Tarjeta
+        </span>
+        <div className="flex flex-col mt-10 gap-4 text-sm md:text-base">
           <div className="flex flex-col">
             <span>Nombre Completo*</span>
             <input
@@ -154,8 +156,8 @@ const PaymentModal = ({
               )}
             </div>
           </div>
-          <div className="flex justify-between w-full">
-            <div className="flex flex-col w-[20%]">
+          <div className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between w-full">
+            <div className="flex flex-col md:w-[30%] w-full">
               <span>Tipo de Documento*</span>
               <select
                 className="primary-input"
@@ -168,7 +170,7 @@ const PaymentModal = ({
                 <option value="pasaporte">Pasaporte</option>
               </select>
             </div>
-            <div className="flex flex-col w-[60%]">
+            <div className="flex flex-col w-full md:w-[60%]">
               <span>Número de Documento*</span>
               {system.documentType === "dni" ? (
                 <>
@@ -262,6 +264,7 @@ interface IBudgetData {
   rating: number;
   budget: number;
   pickUpDate: Date;
+  deliveryDate: Date;
   idOrder: string;
   email: string;
 }

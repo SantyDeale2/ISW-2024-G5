@@ -11,7 +11,7 @@ const RatingStars = ({ rating }: IRatingStars) => {
 
   for (let i = 0; i < filled; i++) {
     stars.push(
-      <span key={i} className="text-yellow-400 text-4xl">
+      <span key={i} className="text-yellow-400 text-2xl md:text-4xl">
         ★
       </span>
     );
@@ -23,9 +23,9 @@ const RatingStars = ({ rating }: IRatingStars) => {
         key={filled}
         style={{ position: "relative", display: "inline-block" }}
       >
-        <span className="text-gray-400 text-4xl">★</span>
+        <span className="text-gray-400 text-2xl md:text-4xl">★</span>
         <span
-          className="text-yellow-400 text-4xl"
+          className="text-yellow-400 text-2xl md:text-4xl"
           style={{
             position: "absolute",
             top: 0,
@@ -43,7 +43,7 @@ const RatingStars = ({ rating }: IRatingStars) => {
 
   while (stars.length < 5) {
     stars.push(
-      <span key={stars.length} className="text-gray-400 text-4xl">
+      <span key={stars.length} className="text-gray-400 text-2xl md:text-4xl">
         ★
       </span>
     );

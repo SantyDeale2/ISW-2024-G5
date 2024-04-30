@@ -16,11 +16,13 @@ const OrderList = () => {
       {system.orderList?.map((order: IOrderData, index: number) => (
         <div
           key={index}
-          className="border-[3px] rounded-lg w-full p-4 flex justify-between border-[#011638] cursor-pointer"
+          className="border-[1px] md:border-[2px] lg:border-[3px] rounded-lg w-full p-4 flex items-center justify-between border-[#011638] cursor-pointer"
           onClick={() => router.push(`/order/${order.id}`)}
         >
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-2xl">Serie del Pedido:</span>
+            <span className="font-semibold text-lg md:text-2xl">
+              Serie del Pedido:
+            </span>
             <span>{order.serie}</span>
           </div>
           <span>{order.status}</span>

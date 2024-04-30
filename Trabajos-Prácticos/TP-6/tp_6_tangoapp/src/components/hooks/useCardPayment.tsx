@@ -329,13 +329,6 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
 
 export default useCardPayment;
 
-interface IData2Send {
-  name: string;
-  date: string;
-  price: string;
-  typePayment: string;
-}
-
 interface ICardPayment {
   budgetData: IBudgetData | null;
   orderData: IOrderData | null;
@@ -347,6 +340,7 @@ interface IBudgetData {
   rating: number;
   budget: number;
   pickUpDate: Date;
+  deliveryDate: Date;
   idOrder: string;
   email: string;
 }

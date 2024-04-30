@@ -44,7 +44,7 @@ const BudgetSelected = () => {
       {system.actualBudget ? (
         <div className="flex flex-col">
           <div className="flex justify-between">
-            <span className="text-4xl font-semibold">
+            <span className="text-xl md:text-2xl lg:text-4xl font-semibold">
               {system.actualBudget.name}
             </span>
             <div className="flex gap-1 items-center">
@@ -53,24 +53,26 @@ const BudgetSelected = () => {
             </div>
           </div>
 
-          <div className="flex gap-4 mt-10 text-lg font-semibold">
+          <div className="flex gap-4 mt-10 text-base md:text-lg font-semibold">
             <span className="w-[15rem]">Fecha de Retiro: </span>
             <span>
               {utils.formatDateToString(system.actualBudget.pickUpDate)}
             </span>
           </div>
-          <div className="flex gap-4 mt-5 text-lg font-semibold">
+          <div className="flex gap-4 mt-5 text-base md:text-lg font-semibold">
             <span className="w-[15rem]">Entrega del Traslado: </span>
-            <span>???????????????????????</span>
+            <span>
+              {utils.formatDateToString(system.actualBudget.deliveryDate)}
+            </span>
           </div>
 
           <div className="flex flex-col mt-10 gap-4">
-            <span className="text-2xl font-semibold">Importe</span>
+            <span className="text-xl md:text-2xl font-semibold">Importe</span>
             <div className="flex gap-20">
-              <span className="text-lg font-semibold">
+              <span className="text-base md:text-lg font-semibold">
                 $ {system.actualBudget.budget}
               </span>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 text-sm md:text-base">
                 <div className="flex flex-col">
                   <label>
                     <input
@@ -110,7 +112,7 @@ const BudgetSelected = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-10">
             <Button
               className="primary-button w-fit"
               type="button"

@@ -9,7 +9,9 @@ const Order = () => {
   return (
     <div className="px-[20px] md:px-[30px] xl:px-[50px] 2xl:px-[60px] w-full py-5">
       <div className="flex flex-col gap-10 h-full">
-        <span className="font-bold text-5xl">Pedidos</span>
+        <span className="font-bold text-2xl md:text-3xl lg:text-5xl">
+          Pedidos
+        </span>
         <OrderList />
       </div>
     </div>

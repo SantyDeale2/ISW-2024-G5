@@ -5,6 +5,20 @@ const useHome = () => {
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
   const router = useRouter();
 
+  function randomDate(start: Date, end: Date) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  function randomPickUpDate() {
+    const currentDate = new Date();
+    const randomDays = Math.floor(Math.random() * 4) + 1;
+    const pickUpDate = new Date(currentDate);
+    pickUpDate.setDate(currentDate.getDate() + randomDays);
+    return pickUpDate;
+  }
+
   useEffect(() => {
     router.push("/order");
     const storedData = localStorage.getItem("budgetList");
@@ -17,7 +31,8 @@ const useHome = () => {
           name: "Camila Campos",
           rating: 3.6,
           budget: 200000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
           email: "camilacampossaldarriaga@gmail.com",
         },
@@ -26,7 +41,8 @@ const useHome = () => {
           name: "Florencia Vargas",
           rating: 2.3,
           budget: 80000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
           email: "florencia@gmail.com",
         },
@@ -35,7 +51,8 @@ const useHome = () => {
           name: "El TUTE",
           rating: 5.0,
           budget: 10000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
           email: "ELTUTE@gmail.com",
         },
@@ -44,7 +61,8 @@ const useHome = () => {
           name: "Juan Capdevila",
           rating: 1.4,
           budget: 9000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
           email: "juanca@gmail.com",
         },
@@ -53,7 +71,8 @@ const useHome = () => {
           name: "Camila Campos",
           rating: 3.6,
           budget: 300000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
           email: "camilacampossaldarriaga@gmail.com",
         },
@@ -62,7 +81,8 @@ const useHome = () => {
           name: "Florencia Vargas",
           rating: 2.3,
           budget: 100000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
           email: "florencia@gmail.com",
         },
@@ -71,7 +91,8 @@ const useHome = () => {
           name: "El TUTE",
           rating: 5.0,
           budget: 30000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
           email: "ELTUTE@gmail.com",
         },
@@ -80,7 +101,8 @@ const useHome = () => {
           name: "Juan Capdevila",
           rating: 1.4,
           budget: 27000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
           email: "juanca@gmail.com",
         },
@@ -89,7 +111,8 @@ const useHome = () => {
           name: "Camila Campos",
           rating: 3.6,
           budget: 1000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
           email: "camilacampossaldarriaga@gmail.com",
         },
@@ -98,7 +121,8 @@ const useHome = () => {
           name: "Florencia Vargas",
           rating: 2.3,
           budget: 2000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
           email: "florencia@gmail.com",
         },
@@ -107,7 +131,8 @@ const useHome = () => {
           name: "El TUTE",
           rating: 5.0,
           budget: 200,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
           email: "ELTUTE@gmail.com",
         },
@@ -116,11 +141,25 @@ const useHome = () => {
           name: "Juan Capdevila",
           rating: 1.4,
           budget: 5000,
-          pickUpDate: new Date(),
+          pickUpDate: randomPickUpDate(),
+          deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
           email: "juanca@gmail.com",
         },
       ];
+
+      budgetlist.forEach((item) => {
+        const pickUpDate = item.pickUpDate;
+
+        const deliveryDate = new Date(pickUpDate);
+        deliveryDate.setDate(deliveryDate.getDate() + 7);
+
+        item.pickUpDate = pickUpDate;
+        item.deliveryDate = randomDate(
+          deliveryDate,
+          new Date(deliveryDate.getTime() + 7 * 24 * 60 * 60 * 1000)
+        );
+      });
 
       if (!status) {
         const statusData = { value: "Registrado", id: "" };
@@ -143,6 +182,7 @@ interface IBudgetData {
   rating: number;
   budget: number;
   pickUpDate: Date;
+  deliveryDate: Date;
   email: string;
 }
 
