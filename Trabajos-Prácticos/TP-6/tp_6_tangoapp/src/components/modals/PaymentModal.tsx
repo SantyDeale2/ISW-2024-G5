@@ -130,7 +130,23 @@ const PaymentModal = ({
             </div>
             <div className="flex flex-col w-[45%]">
               <span>Fecha de Expiración*</span>
-              <DatePicker id="date" register={register} errors={errors} />
+              <input
+                className="primary-input"
+                placeholder="MM/YY"
+                maxLength={5}
+                onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  const input = event.target as HTMLInputElement;
+                  const trimmedValue = input.value.replace(/\s/g, "");
+                  const formattedValue = trimmedValue
+                    .replace(/\D/g, "")
+                    .replace(/(\d{2})(\d{1,2})/, "$1/$2");
+                  input.value = formattedValue;
+                }}
+                {...register("expirationDate", {
+                  required: true,
+                  pattern: /^(0[1-9]|1[0-2])\/\d{2}$/,
+                })}
+              />
             </div>
           </div>
           <div className="flex justify-between w-full">

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const useHome = () => {
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
+   
+    router.push("/order");
     const storedData = localStorage.getItem("budgetList");
     const status = localStorage.getItem("status");
 
