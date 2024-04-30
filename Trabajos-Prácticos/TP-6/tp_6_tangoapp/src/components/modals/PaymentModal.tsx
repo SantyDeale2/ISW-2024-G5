@@ -147,6 +147,11 @@ const PaymentModal = ({
                   pattern: /^(0[1-9]|1[0-2])\/\d{2}$/,
                 })}
               />
+              {errors["expirationDate"]?.type === "required" && (
+                <p className="text-sm text-[red]">
+                  La fecha de expiración es requerida
+                </p>
+              )}
             </div>
           </div>
           <div className="flex justify-between w-full">
