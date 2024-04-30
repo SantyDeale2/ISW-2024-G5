@@ -73,42 +73,52 @@ const BudgetSelected = () => {
                 $ {system.actualBudget.budget}
               </span>
               <div className="flex flex-col gap-2 text-sm md:text-base">
-                <div className="flex flex-col">
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="credit"
-                      checked={system.paymentOption === "credit"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Tarjeta Crédito/Débito
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="cash_pickup"
-                      checked={system.paymentOption === "cash_pickup"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Efectivo al Retirar
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="cash_delivery"
-                      checked={system.paymentOption === "cash_delivery"}
-                      onChange={actions.handlePaymentOptionChange}
-                    />
-                    Efectivo contra Entrega
-                  </label>
-                </div>
+                {system.actualBudget.id !==
+                  "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571" &&
+                  system.actualBudget.id !==
+                    "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571" && (
+                    <div className="flex flex-col">
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="credit"
+                          checked={system.paymentOption === "credit"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Tarjeta Crédito/Débito
+                      </label>
+                    </div>
+                  )}
+                {system.actualBudget.id !==
+                  "d9ee6a90-37b5-4f88-82eb-177a300a7d5b" && (
+                  <>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="cash_pickup"
+                          checked={system.paymentOption === "cash_pickup"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Efectivo al Retirar
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="cash_delivery"
+                          checked={system.paymentOption === "cash_delivery"}
+                          onChange={actions.handlePaymentOptionChange}
+                        />
+                        Efectivo contra Entrega
+                      </label>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

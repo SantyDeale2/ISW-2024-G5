@@ -2,7 +2,6 @@ import React, { ChangeEvent, useState } from "react";
 import BasicModal from "../BasicModal";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
-import DatePicker from "../DatePicker";
 import useCardPayment from "../hooks/useCardPayment";
 import ErrorModal from "./ErrorModal";
 import LoadingModal from "./LoadingModal";
@@ -41,7 +40,15 @@ const PaymentModal = ({
         onClickButton={actions.handleSucessModal}
         textButton="Finalizar"
       >
-        Pago registrado correctamente!
+        <div className="flex flex-col gap-4">
+          <span className="text-2xl font-semibold">
+            Pago registrado correctamente!
+          </span>
+          <div className="flex gap-2">
+            <span className="">Número de Pago:</span>
+            <span className="font-semibold">{system.randomNumber}</span>
+          </div>
+        </div>
       </SuccessModal>
 
       <form className="px-[40px] mb-[5%]" onSubmit={actions.onSubmit}>
@@ -71,34 +78,62 @@ const PaymentModal = ({
               </p>
             )}
           </div>
-          <div className="flex flex-col">
-            <span>Número de Tarjeta*</span>
-            <input
-              className="primary-input"
-              placeholder="4444 4444 4444 4444"
-              type="text"
-              maxLength={19}
-              onInput={(event: ChangeEvent<HTMLInputElement>) => {
-                const value = event.target.value.replace(/\D/g, "");
-                const formattedValue = value.replace(/(\d{4})(?=\d)/g, "$1 ");
-                event.target.value = formattedValue;
-              }}
-              {...register("number", {
-                required: true,
-                minLength: 19,
-              })}
-            />
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col w-[70%]">
+              <span>Número de Tarjeta*</span>
+              <input
+                className="primary-input"
+                placeholder="4444 4444 4444 4444"
+                type="text"
+                maxLength={19}
+                onInput={(event: ChangeEvent<HTMLInputElement>) => {
+                  const value = event.target.value.replace(/\D/g, "");
+                  const formattedValue = value.replace(/(\d{4})(?=\d)/g, "$1 ");
+                  event.target.value = formattedValue;
+                }}
+                {...register("number", {
+                  required: true,
+                  minLength: 19,
+                })}
+              />
 
-            {errors["number"]?.type === "required" && (
-              <p className="text-sm text-[red]">
-                El campo del número de tarjeta es requerido
-              </p>
-            )}
-            {errors["number"]?.type === "minLength" && (
-              <p className="text-sm text-[red]">
-                El número de la tarjeta debe tener una longitud de 16 números
-              </p>
-            )}
+              {errors["number"]?.type === "required" && (
+                <p className="text-sm text-[red]">
+                  El campo del número de tarjeta es requerido
+                </p>
+              )}
+              {errors["number"]?.type === "minLength" && (
+                <p className="text-sm text-[red]">
+                  El número de la tarjeta debe tener una longitud de 16 números
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2 text-sm md:text-base">
+              <div className="flex flex-col">
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="debit"
+                    checked={system.paymentOption === "debit"}
+                    onChange={actions.handlePaymentOptionChange}
+                  />
+                  Débito
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="credit"
+                    checked={system.paymentOption === "credit"}
+                    onChange={actions.handlePaymentOptionChange}
+                  />
+                  Crédito
+                </label>
+              </div>
+            </div>
           </div>
           <div className="flex justify-between w-full">
             <div className="flex flex-col w-[45%]">
@@ -256,6 +291,9 @@ interface IOrderData {
   id: string;
   serie: string;
   status: string;
+  idBudget: string;
+  paymentMethod: string;
+  number: string;
 }
 
 interface IBudgetData {

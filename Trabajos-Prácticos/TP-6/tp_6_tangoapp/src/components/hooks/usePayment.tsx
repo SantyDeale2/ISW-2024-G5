@@ -106,6 +106,11 @@ const usePayment = () => {
         actions.enviarEmail();
 
         orders[orderToUpdateIndex].status = "Confirmado";
+        orders[orderToUpdateIndex].idBudget = actualBudget!.id;
+        orders[orderToUpdateIndex].paymentMethod =
+          paymentOption === "cash_pickup"
+            ? "Efectivo al Retirar"
+            : "Efectivo contra Entrega";
         localStorage.setItem("orderList", JSON.stringify(orders));
 
         setModals({
@@ -264,4 +269,7 @@ interface IOrderData {
   id: string;
   serie: string;
   status: string;
+  idBudget: string;
+  paymentMethod: string;
+  number: string;
 }

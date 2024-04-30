@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import RatingStars from "./RatingStars";
 import Spinner from "./Spinner";
 
-const BudgetList = ({ list }: IBudgetList) => {
-  const { system } = useBudgets();
+const BudgetList = ({ list, parentSystem, parentActions }: IBudgetList) => {
   const router = useRouter();
 
   return (
@@ -29,15 +28,30 @@ const BudgetList = ({ list }: IBudgetList) => {
                     <span>{budget.rating}</span>
                   </div>
 
-                  <Button
-                    className="primary-button w-fit"
-                    type="button"
-                    onClick={() =>
-                      router.push(`/budget/${budget.id}/${budget.idOrder}`)
-                    }
-                  >
-                    Seleccionar
-                  </Button>
+                  {parentSystem.actualOrder?.idBudget === budget.id ? (
+                    <Button
+                      className="primary-button w-fit"
+                      type="button"
+                      onClick={() =>
+                        parentActions.handleViewDetails(
+                          budget.id,
+                          budget.idOrder
+                        )
+                      }
+                    >
+                      Ver Detalle
+                    </Button>
+                  ) : (
+                    <Button
+                      className="primary-button w-fit"
+                      type="button"
+                      onClick={() =>
+                        router.push(`/budget/${budget.id}/${budget.idOrder}`)
+                      }
+                    >
+                      Seleccionar
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -67,4 +81,6 @@ interface IBudgetData {
 
 interface IBudgetList {
   list: IBudgetData[];
+  parentSystem: any;
+  parentActions: any;
 }

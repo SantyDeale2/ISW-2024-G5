@@ -44,7 +44,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
-          email: "florencia@gmail.com",
+          email: "florenciavargas567@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -54,7 +54,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
-          email: "ELTUTE@gmail.com",
+          email: "matihayden@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",
@@ -84,7 +84,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
-          email: "florencia@gmail.com",
+          email: "florenciavargas567@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -94,7 +94,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
-          email: "ELTUTE@gmail.com",
+          email: "matihayden@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",
@@ -124,7 +124,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
-          email: "florencia@gmail.com",
+          email: "florenciavargas567@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -134,7 +134,7 @@ const useHome = () => {
           pickUpDate: randomPickUpDate(),
           deliveryDate: new Date(),
           idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
-          email: "ELTUTE@gmail.com",
+          email: "matihayden@gmail.com",
         },
         {
           id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",

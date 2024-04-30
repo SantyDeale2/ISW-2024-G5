@@ -38,4 +38,7 @@ interface IOrderData {
   id: string;
   serie: string;
   status: string;
+  idBudget: string;
+  paymentMethod: string;
+  number: string;
 }

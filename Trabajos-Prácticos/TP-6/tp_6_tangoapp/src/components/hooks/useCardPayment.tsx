@@ -9,10 +9,15 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
     loading: { show: false },
     error: { show: false, message: "" },
   });
+  const [randomNumber, setRandomNumber] = useState(0);
+  const [paymentOption, setPaymentOption] = useState("debit");
   const router = useRouter();
 
   const actions = {
     setDocumentType,
+    handlePaymentOptionChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPaymentOption(event.target.value);
+    },
     handleSendMail: async () => {
       try {
         const response = await fetch("http://localhost:3001/api/sendmail", {
@@ -89,7 +94,11 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
                                                     budgetData!.pickUpDate
                                                   )}</div>
                                                 <div style="font-family: inherit; text-align: inherit"><strong>Forma de Pago:
-                                                  </strong>Tarjeta</div>
+                                                  </strong>${
+                                                    paymentOption === "debit"
+                                                      ? "Tarjeta de Débito"
+                                                      : "Tarjeta de Crédito"
+                                                  }</div>
                                                 <div style="font-family: inherit; text-align: inherit"><strong>Monto:
                                                   </strong>$ ${
                                                     budgetData?.budget
@@ -134,8 +143,17 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
               (order: IOrderData) => order.id === orderData?.id
             );
 
+            const random = Math.floor(Math.random() * 1000000);
+            setRandomNumber(random);
+
             if (orderToUpdateIndex !== -1) {
               orders[orderToUpdateIndex].status = "Confirmado";
+              orders[orderToUpdateIndex].idBudget = budgetData!.id;
+              orders[orderToUpdateIndex].paymentMethod =
+                paymentOption === "debit"
+                  ? "Tarjeta de Débito"
+                  : "Tarjeta de Crédito";
+              orders[orderToUpdateIndex].number = random;
               localStorage.setItem("orderList", JSON.stringify(orders));
             }
           }
@@ -234,17 +252,6 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
         return;
       }
 
-      /*const date = form.get("expirationDate")?.toString();
-      if (!date) {
-        setModals({
-          ...modals,
-          error: {
-            show: true,
-            message: "Debe completar todos los campos (Fecha de Expiración)",
-          },
-        });
-        return;
-      }*/
       const expirationDate = form.get("expirationDate")?.toString();
       if (expirationDate) {
         const currentDate = new Date();
@@ -331,6 +338,15 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
             },
             loading: { show: false },
           });
+        } else if (number !== "4200 0000 0000 0000") {
+          setModals({
+            ...modals,
+            error: {
+              show: true,
+              message: "La datos de la tarjeta no son válidos",
+            },
+            loading: { show: false },
+          });
         } else {
           actions.handleSendMail();
         }
@@ -353,6 +369,8 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
   const system = {
     documentType,
     modals,
+    randomNumber,
+    paymentOption,
   };
 
   return { actions, system };
@@ -380,4 +398,7 @@ interface IOrderData {
   id: string;
   serie: string;
   status: string;
+  idBudget: string;
+  paymentMethod: string;
+  number: string;
 }

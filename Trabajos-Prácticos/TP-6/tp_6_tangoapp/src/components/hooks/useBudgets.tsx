@@ -5,8 +5,15 @@ import { useRouter } from "next/navigation";
 const useBudgets = () => {
   const [modals, setModals] = useState({
     loading: { show: true },
+    details: { show: false },
   });
   const [budgetList, setBudgetList] = useState<IBudgetData[] | null>(null);
+  const [actualOrder, setActualOrder] = useState<IOrderData | null>(null);
+
+  const [budgetSelected, setBudgetSelected] = useState<IBudgetData | null>(
+    null
+  );
+  const [orderSelected, setOrderSelected] = useState<IOrderData | null>(null);
 
   function randomDate(start: Date, end: Date) {
     return new Date(
@@ -51,7 +58,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
-            email: "florencia@gmail.com",
+            email: "florenciavargas567@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -61,7 +68,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "7d271fef-8ab4-4f7d-933f-7b4c6b6b8554",
-            email: "ELTUTE@gmail.com",
+            email: "matihayden@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",
@@ -91,7 +98,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
-            email: "florencia@gmail.com",
+            email: "florenciavargas567@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -101,7 +108,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "6a0c06b8-eae5-44cc-97e4-2aa35bb1cb0f",
-            email: "ELTUTE@gmail.com",
+            email: "matihayden@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",
@@ -131,7 +138,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
-            email: "florencia@gmail.com",
+            email: "florenciavargas567@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3b7450f571",
@@ -141,7 +148,7 @@ const useBudgets = () => {
             pickUpDate: randomPickUpDate(),
             deliveryDate: new Date(),
             idOrder: "4b5f8f21-fb6f-4941-bc0f-fa1fcf8a25a6",
-            email: "ELTUTE@gmail.com",
+            email: "matihayden@gmail.com",
           },
           {
             id: "e84b6b9d-3d8c-4d34-8d8b-8a3ef50f571",
@@ -183,6 +190,17 @@ const useBudgets = () => {
         setBudgetList(filteredBudgetList);
       }
 
+      const storedDataOrder = localStorage.getItem("orderList");
+      if (storedDataOrder) {
+        parsedData = JSON.parse(storedDataOrder);
+
+        const filteredOrderList = parsedData.filter(
+          (order: IOrderData) => order.id === orderId
+        );
+
+        setActualOrder(filteredOrderList[0]);
+      }
+
       setModals({
         ...modals,
         loading: { show: false },
@@ -190,12 +208,58 @@ const useBudgets = () => {
     }, 1000);
   }, []);
 
+  const actions = {
+    handleViewDetails: (budgetId: string, orderId: string) => {
+      let parsedData;
+
+      const storedDataBudget = localStorage.getItem("budgetList");
+      if (storedDataBudget) {
+        parsedData = JSON.parse(storedDataBudget);
+        const filteredBudgetList = parsedData.filter(
+          (budget: IBudgetData) =>
+            budget.idOrder === orderId && budget.id === budgetId
+        );
+
+        setBudgetSelected(filteredBudgetList[0]);
+      }
+
+      const storedDataOrder = localStorage.getItem("orderList");
+      if (storedDataOrder) {
+        parsedData = JSON.parse(storedDataOrder);
+
+        const filteredOrderList = parsedData.filter(
+          (order: IOrderData) => order.id === orderId
+        );
+
+        setOrderSelected(filteredOrderList[0]);
+      }
+
+      setModals({
+        ...modals,
+        details: {
+          show: true,
+        },
+      });
+    },
+    handleCloseDetailModal: () => {
+      setModals({
+        ...modals,
+        details: {
+          show: false,
+        },
+      });
+    },
+  };
+
   const system = {
     budgetList,
     modals,
+    actualOrder,
+    budgetSelected,
+    orderSelected,
   };
 
-  return { system };
+  return { system, actions };
 };
 
 export default useBudgets;
@@ -209,4 +273,13 @@ interface IBudgetData {
   deliveryDate: Date;
   idOrder: string;
   email: string;
+}
+
+interface IOrderData {
+  id: string;
+  serie: string;
+  status: string;
+  idBudget: string;
+  paymentMethod: string;
+  number: string;
 }
