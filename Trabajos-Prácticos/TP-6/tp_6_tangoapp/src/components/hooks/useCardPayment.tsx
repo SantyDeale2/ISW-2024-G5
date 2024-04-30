@@ -234,8 +234,39 @@ const useCardPayment = ({ budgetData, orderData }: ICardPayment) => {
         return;
       }
 
-      const date = form.get("expirationDate")?.toString();
+      /*const date = form.get("expirationDate")?.toString();
       if (!date) {
+        setModals({
+          ...modals,
+          error: {
+            show: true,
+            message: "Debe completar todos los campos (Fecha de Expiración)",
+          },
+        });
+        return;
+      }*/
+      const expirationDate = form.get("expirationDate")?.toString();
+      if (expirationDate) {
+        const currentDate = new Date();
+        const [month, year] = expirationDate.split("/");
+        const expiration = new Date(
+          parseInt(year) + 2000,
+          parseInt(month) - 1,
+          1
+        );
+
+        if (expiration <= currentDate) {
+          setModals({
+            ...modals,
+            error: {
+              show: true,
+              message:
+                "La fecha de expiración debe ser posterior a la fecha actual",
+            },
+          });
+          return;
+        }
+      } else {
         setModals({
           ...modals,
           error: {
