@@ -103,6 +103,10 @@ const usePayment = () => {
           payment: { show: true },
         });
       } else {
+        setModals({
+          ...modals,
+          loading: { show: true },
+        });
         actions.enviarEmail();
 
         orders[orderToUpdateIndex].status = "Confirmado";
@@ -116,6 +120,7 @@ const usePayment = () => {
         setModals({
           ...modals,
           success: { show: true },
+          loading: { show: false },
         });
       }
     },
